@@ -10,7 +10,7 @@
 
 ​	 部署：最终在sevlet容器中部署的不是动态web工程，而是编译后的文件 
 
-![](.\mavenimages\maven1.png)
+![](./mavenimages/maven1.png)
 
 ##### 构建的各个环节
 
@@ -26,7 +26,7 @@
 
 工程目录：
 
-![](.\mavenimages\maven2.png)
+![](./mavenimages/maven2.png)
 
 #### 常用maven命令
 
@@ -47,13 +47,13 @@
 
  **坐标：**使用下面的三个向量在仓库中唯一的定位一个maven工程 
 
-![](.\mavenimages\maven3.png)
+![](./mavenimages/maven3.png)
 
  
 
 **maven工程的坐标与仓库中路径的关系：** 
 
-![](.\mavenimages\maven4.png)
+![](./mavenimages/maven4.png)
 
 maven坐标和仓库对应的映射关系：
 
@@ -95,7 +95,7 @@ maven坐标和仓库对应的映射关系：
 
  **③ 依赖范围** 
 
-![](.\mavenimages\maven5.png)
+![](./mavenimages/maven5.png)
 
 *scope就是依赖的范围*
 
@@ -148,7 +148,7 @@ Maven有三套相互独立的生命周期，请注意这里说的是“三套”
 
 那我们在Hello的项目中执行 mvn install 命令，通过日志看看中间经历了什么？
 
-![](.\mavenimages\maven6.png)
+![](./mavenimages/maven6.png)
 
 通过日志我们发现，其实执行mvn install，其中已经执行了compile 和 test 。
 
@@ -169,7 +169,7 @@ Maven有三套相互独立的生命周期，请注意这里说的是“三套”
 
  **① 依赖的传递性** 
 
-![](.\mavenimages\maven7.png)
+![](./mavenimages/maven7.png)
 
 WebMavenDemo项目依赖JavaMavenService1 JavaMavenService1项目依赖JavaMavenService2
 
@@ -180,7 +180,7 @@ pom.xml文件配置好依赖关系后，必须首先mvn install后，依赖的ja
 
 **传递性：**
 
-![](.\mavenimages\maven8.png)
+![](./mavenimages/maven8.png)
 
  注意：非compile范围的依赖是不能传递的。 
 
@@ -188,19 +188,19 @@ pom.xml文件配置好依赖关系后，必须首先mvn install后，依赖的ja
 
 **1、路径最短者优先原则**
 
-![](.\mavenimages\maven9.png)
+![](./mavenimages/maven9.png)
 
 Service2的log4j的版本是1.2.7版本，Service1排除了此包的依赖，自己加了一个Log4j的1.2.9的版本，那么WebMavenDemo项目遵守路径最短优先原则，Log4j的版本和Sercive1的版本一致。
 
 **2、路径相同先声明优先原则**
 
-![](.\mavenimages\maven10.png)
+![](./mavenimages/maven10.png)
 
 这种场景依赖关系发生了变化，WebMavenDemo项目依赖Sercive1和Service2，它俩是同一个路径，那么谁在WebMavenDemo的pom.xml中先声明的依赖就用谁的版本。
 
 **③ 统一管理依赖的版本：**
 
-![](.\mavenimages\maven11.png)
+![](./mavenimages/maven11.png)
 
 为了统一管理版本号，可以使用properties标签，里面可以自定义版本的标签名。在使用的地方使用${自定义标签名}                        
 
@@ -272,4 +272,4 @@ Service2的log4j的版本是1.2.7版本，Service1排除了此包的依赖，自
 
  配置好build后，执行mvn package之后，在maven工程指定的target目录里war包和文件都按照配置的生成了 
 
-![](.\mavenimages\maven12.png)
+![](./mavenimages/maven12.png)
